@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="css/w3.css" />
+<link rel="stylesheet" type="text/css" href="css/w3-theme.css" />
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
+
+  <script type="text/javascript" charset="utf-8" src="js/jquer-3.0.0.min"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+
+<style>
+html,body{
+margin:0px;
+padding:0px;
+background-color:}
+#footer{
+position:fixed;
+bottom:0px;
+right:0px;
+width:100%;
+}</style> 
+</head>
+<body CLASS="w3-theme">
+
+
+
+<h2 class="w3-text-white">add entry</h2>
+
+<div class="w3-container">
+<p>
+<label class="w3-text-white"><b>title/url/website</b></label>
+<input class="w3-input w3-border" name="url" type="text"></p>
+
+<p>
+<label class="w3-text-white"><b>username</b></label>
+<input class="w3-input w3-border" name="username" type="text"></p>
+
+<p>
+<label class="w3-text-white"><b>password</b></label>
+<input class="w3-input w3-border" name="password" type="text"></p>
+
+<p>
+<label class="w3-text-white"><b>details</b></label>
+<input class="w3-input w3-border" name="about" type="text"></p>
+
+<p>
+<button class="w3-btn w3-white" id="butt">Register</button></p>
+
+</div>
+
+<script>
+$(document).ready(function(){
+$("#butt").click(function(){
+var url = $("input[name='url']").val();
+var user = $("input[name='username']").val();
+var pass = $("input[name='password]").val();
+var det = $("input[name='about']").val();
+var db = window.openDatabase("vikiLocker","1.0","vikiLocker",5000000);
+db.transaction(function(tx){
+					tx.executeSql('INSERT INTO `passwords`(title,uname,upass,details) VALUES(?,?,?,?)',
+					[url,user,pass,det],
+					function(tx,result){alert('entry added');},
+					function(error){alert('something went wrong');});
+					})
+});
+});
+</script>
+
+﻿</body>
+</html>

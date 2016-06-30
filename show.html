@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="css/w3.css" />
+<link rel="stylesheet" type="text/css" href="css/w3-theme.css" />
+<link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
+
+  <script type="text/javascript" charset="utf-8" src="js/jquer-3.0.0.min"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+//when device is ready
+function onDeviceReady(){
+	var db = window.openDatabase("vikiLocker","1.0","vikiLocker",5000000);
+	db.transaction(inspectDB, errorCB,successCB);
+}
+
+function inspectDB(tx){
+								tx.executeSql('SELECT * FROM `passwords`;', [], 
+																							function(tx,results){
+																							var len = results.rows.length;
+																							var i;
+																							for (i=0;i<len;i++){
+																											$("#tableData").append(
+																											"<li class='w3-theme-d2'>"+
+																														results.rows.item(i).id +" <br/>"+
+																															results.rows.item(i).title+" <br/>"+
+																																results.rows.item(i).uname +"  <br/>"+
+																																	results.rows.item(i).upass +"  <br/>"+
+																																		results.rows.item(i).details +"  <br/>"+
+																																			results.rows.item(i).icon
+																																			+"</li>"
+																											);
+																							}},null)
+}
+
+//transaction callbacks
+function errorCB(tx,err){
+alert('sory ! something went wrong. 
+you are valuable to us. kindly sent us a mail @dvkrparShar@gmail.com mentioning error code
+. error code '+err);}
+</script>
+<style>
+html,body{
+margin:0px;
+padding:0px;
+background-color:}
+#footer{
+position:fixed;
+bottom:0px;
+right:0px;
+width:100%;
+}</style> 
+</head>
+<body CLASS="w3-theme">
+<div class="w3-container">
+<div class="w3-header w3-bottombar w3-border-red">
+<h3>vikiLocker</h3></div>
+<div >
+
+<ul class="w3-ul w3-border-top" id="tableData">
+
+</ul>
+</div>
+<div id="footer">
+<a class="w3-btn-floating-large w3-theme-action w3-right" style="position:absolute;top:-100px;right:16px;">+</a></div>
+</div>
+﻿</body>
+</html>

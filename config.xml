@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget
+		xmlns="http://www.w3.org/ns/widgets"
+		xmlns:gap="http://www.phonegap.com/ns/1.0"
+		id="com.dp.vikilocker"
+		versionCode="10"
+		version="0.0.1"
+>
+
+<name>vikiLocker</name>
+<description> An ad free and cost free password manager app</description>
+<author 
+		htef="#"
+		email="dvkrparashar@yahoo.com"
+		>Divakar Parashar</author>
+		
+		<platform name="android" />
+		<preference name="orientation" value="default" />
+		<preference name="target-device" value="universal" />
+		<preference name="fullscreen" value="true" />
+		<preference name="android-installLocation" value="auto" />
+		<gap:plugin name="org.apache.cordova.inappbrowser" />
+		<gap:plugin name="org.apache.cordova.Storage" />
+		<plugin name="cordova-plugin-whitelist" version="1" />
+		<access />
+<access origin="*"/>
+ <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+   <allow-intent href="market:*" />
+    </platform>
+
+
+</widget>
+
+
+
