@@ -20,7 +20,7 @@
 		<preference name="fullscreen" value="true" />
 		<preference name="android-installLocation" value="auto" />
 		<gap:plugin name="org.apache.cordova.inappbrowser" />
-		<gap:plugin name="org.apache.cordova.Storage" />
+		<plugin name="io.litehelpers.cordova.sqlite" spec="0.7.6" source="pgb" />
 		<plugin name="cordova-plugin-whitelist" version="1" />
 		<access />
 <access origin="*"/>
