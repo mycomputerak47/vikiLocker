@@ -17,10 +17,13 @@
 
 //when device is ready
 function onDeviceReady(){
+localStorage.setItem("trial","DONE");
 if(!(window.localStorage.getItem("setup"))){
 	createUser();
 	}
 	else{$("#Go").show();}
+var hud = localStorage.getItem("trial");
+$("#Go").append(hud);
 }
 
 //create user
