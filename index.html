@@ -7,9 +7,13 @@
 <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.css" />
 
   <script type="text/javascript" charset="utf-8" src="js/jquery-3.0.0.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.mn.js"></script>
+
   <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
     <script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		alert('jquery is ready');
+		$("#Go").hide();
+	});
 
     // Wait for Cordova to load
     //
@@ -17,24 +21,15 @@
 
 //when device is ready
 function onDeviceReady(){
-localStorage.setItem("trial","DONE");
-if(!(window.localStorage.getItem("setup"))){
-	createUser();
-	}
-	else{$("#Go").show();}
-var hud = localStorage.getItem("trial");
-$("#Go").append(hud);
+	alert('device is ready');
+var db = window.sqlitePlugin.openDatabase({"name":"database.db"});
+db.transaction(populateDB,errorCB,successCB)
 }
 
-//create user
-createUser(){
-var db = window.openDatabase("vikiLocker","1.0","vikiLocker",5000000);
-db.transaction(populateDB ,errorCB, successCB;
-}
+
 
 //4un sql and create database
 function populateDB(tx){
-tx.executeSql("DROP TABLEB IF EXISTS `passwords`");
 tx.executeSql('CREATE TABLE IF NOT EXISTS `passwords`
 (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(500) NOT NULL,
@@ -51,7 +46,6 @@ alert('sory ! something went wrong while initiating app.
 you are valuable to us. kindly sent us a mail @dvkrparShar@gmail.com mentioning error code
 . error code '+err);}
 function successCB(){
-window.localStorage.setItem("setup","done");
 alert ("all set. you are ready to go ");
 $("#Go").show();}
 </script>
@@ -61,7 +55,7 @@ margin:0px;
 padding:0px;
 background-color:}</style>
 </head>
-<body CLASS="w3-theme">
+<body CLASS="w3-theme" onload="onDeviceReady();">
 ﻿<div class="w3-container w3-theme w3-padding-32 w3-margin-left" >
 <div class="w3-container w3-bottombar w3-border-red">
 <h1>vikilocker</h1>
@@ -78,7 +72,7 @@ background-color:}</style>
 <script>
 $(document).ready(function(){
 	//alert("jwjwwsj");
-$("#Go").hide();
+// $("#Go").hide();
 })
 
 </script>
