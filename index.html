@@ -30,6 +30,7 @@ db.transaction(populateDB,errorCB,successCB)
 
 //4un sql and create database
 function populateDB(tx){
+tx.executeSql('DROP TABLE IF EXISTS `passwords`');
 tx.executeSql('CREATE TABLE IF NOT EXISTS `passwords`
 (id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 title VARCHAR(500) NOT NULL,
