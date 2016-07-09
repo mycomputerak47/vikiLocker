@@ -9,12 +9,19 @@
   <script type="text/javascript" charset="utf-8" src="js/jquery-3.0.0.min.js"></script>
 
   <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
-	$(document).ready(function(){
-		alert('jquery is ready');
-		$("#Go").hide();
-	});
 
+<style>
+html,body{
+margin:0px;
+padding:0px;
+background-color:}</style>
+</head>
+<body CLASS="w3-theme" onload="onDeviceReady();">
+	    <script type="text/javascript" charset="utf-8">
+		$(document).ready(function(){
+		alert('jquery is ready');
+		$("#Go").html('hsjzj');
+	});
     // Wait for Cordova to load
     //
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -39,6 +46,7 @@ details VARCHAR(3000),
 icon VARCHAR(100)
 )ENGINE = InnoDB;'
 );
+
 }
 //transaction callbacks
 function errorCB(tx,err){
@@ -49,13 +57,6 @@ function successCB(){
 alert ("all set. you are ready to go ");
 $("#Go").show();}
 </script>
-<style>
-html,body{
-margin:0px;
-padding:0px;
-background-color:}</style>
-</head>
-<body CLASS="w3-theme" onload="onDeviceReady();">
 ﻿<div class="w3-container w3-theme w3-padding-32 w3-margin-left" >
 <div class="w3-container w3-bottombar w3-border-red">
 <h1>vikilocker</h1>
@@ -66,15 +67,11 @@ background-color:}</style>
 <div clas="w3-padding-64 w3-margin-top w3-margin-left">
 
 <div class="w3-center">
-<button class="w3-btn w3-theme w3-border w3-border-red w3-round-large" id="Go">Go</button>
+<button class="w3-btn w3-theme w3-border w3-border-red w3-round-large" id="Go">Go</button>hhahahs
 </div>
 </div>
 <script>
-$(document).ready(function(){
-	//alert("jwjwwsj");
-// $("#Go").hide();
-})
-
+	
 </script>
 </body>
 </html>
